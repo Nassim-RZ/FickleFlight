@@ -7,13 +7,13 @@ export const PanelStyles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "stretch",
         marginLeft: '5%',
-        paddingTop: '3%'
+        paddingTop: '5%'
     },
     lineSpace: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
-        marginBottom: 15,
+        marginBottom: 17,
     },
     textPanel: {
         fontSize: 16,
