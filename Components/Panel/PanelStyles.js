@@ -1,34 +1,33 @@
 import { StyleSheet } from 'react-native';
-import { horizontalScale, moderateScale, verticalScale } from '../../Utils/Responsive';
 
 export const PanelStyles = StyleSheet.create({
     panel: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        marginTop: verticalScale(30),
-        marginLeft: horizontalScale(19)
+        alignItems: "stretch",
+        marginLeft: '5%',
+        paddingTop: '3%'
     },
     lineSpace: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
-        marginBottom: horizontalScale(10),
+        marginBottom: 15,
     },
     textPanel: {
-        fontSize: moderateScale(16),
+        fontSize: 16,
         fontWeight: 'bold',
-        color: 'black',
-        marginLeft: horizontalScale(16),
-        alignSelf: 'center'
+        color: '#191919',
+        alignSelf: 'center',
+        fontFamily: 'Roboto-Regular'
     },
     iconCircle: {
-        width: verticalScale(40),
-        height: verticalScale(40),
-        borderRadius: moderateScale(10),
-        backgroundColor: '#e3f2fd',
+        width: 40,
+        height: 40,
+        borderRadius: 4,
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: horizontalScale(10), 
+        marginRight: '4%', 
     },
 });

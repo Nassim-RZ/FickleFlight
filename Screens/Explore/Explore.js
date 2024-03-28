@@ -1,31 +1,40 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import TopNavBar from "../../Components/TopNavBar/TopNavBar";
 import DestinationCard from "../../Components/DestinationCard/DestinationCard";
 import BottomNavBar from "../../Components/BottomNavBar/BottomNavBar";
 import Alert from '../../Components/Alert/Alert';
 import { ExploreStyles } from './ExploreStyles';
+import { data } from '../../Utils/Data';
 
 const Explore = ({ navigation }) => {
     const [isAlertVisible, setIsAlertVisible] = useState(false);
+    const [activeTab, setActiveTab] = useState('Explore');
     const heartIconPress = () => {
         setTimeout(() => {
             setIsAlertVisible(true);
         }, 2000);
     };
+    const renderDestinationCard = ({ item }) => (
+        <DestinationCard
+            imageSource={item.imageSource}
+            destination={item.destination}
+            country={item.country}
+            code={item.code}
+        />
+    );
     return (
         <View style={ExploreStyles.container}>
             <TopNavBar navigation={navigation} />                 
             <View style={ExploreStyles.viewImgParis}>
-                <Image style={ExploreStyles.imgParis} source={require('../../assets/eiffel.png')} />
+                <Image style={ExploreStyles.imgParis} source={require('../../assets/Paris-card.png')} />
                 <TouchableOpacity style={ExploreStyles.heart} onPress={() =>  heartIconPress()} >
                     <Alert
                         visible={isAlertVisible}
                         message="This destination has been added to your favourite"
                         onClose={() => setIsAlertVisible(false)}
                     />
-                    <FontAwesome name="heart-o" size={24} color="white" regular />
+                    <Image source={require('../../assets/Heart.png')} />
                 </TouchableOpacity>
                 <Text style={ExploreStyles.textParis}>Paris</Text>
                 <Text style={ExploreStyles.textFrom}>FROM</Text>
@@ -38,7 +47,7 @@ const Explore = ({ navigation }) => {
                     <Text style={ExploreStyles.startingPoint}>Singapore</Text>
                 </View>
                 <View style={ExploreStyles.viewAirPlan}>
-                <Image source={require('../../assets/plan.png')} style={ExploreStyles.airPlan}/>
+                <Image source={require('../../assets/Frame-13.png')} style={ExploreStyles.airPlan}/>
                 </View>
                 <View>
                     <Text style={ExploreStyles.abrevEndingPoint}>LAX</Text>
@@ -53,18 +62,26 @@ const Explore = ({ navigation }) => {
             <View style={ExploreStyles.spaceTrendText}>
                 <Text style={ExploreStyles.textFlight}>Trending Destinations</Text>
                 <TouchableOpacity>
-                    <Text style={ExploreStyles.textSeeAll}>See all</Text>
+                    <Text style={ExploreStyles.textSeeAll} onPress={() => navigation.navigate('SeeAll')} >See all</Text>
                 </TouchableOpacity>
             </View>
             <View style={ExploreStyles.viewList}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                    <DestinationCard imageSource={require('../../assets/boracay.jpg')} destination="Boracay" country="Philippines" code="5F4N" />
-                    <DestinationCard imageSource={require('../../assets/maldives.jpg')} destination="Baros" country="Maldives" code="7D6N" />
-                    <DestinationCard imageSource={require('../../assets/bali.jpg')} destination="Bali" country="Indonesia" code="3D2N" />
-                    <DestinationCard imageSource={require('../../assets/palawan.jpg')} destination="Palawan" country="Philippines" code="3D2N" />
-                </ScrollView>      
+                <FlatList 
+                    horizontal={true} 
+                    showsHorizontalScrollIndicator={false}
+                    data={data}
+                    renderItem={renderDestinationCard}
+                    keyExtractor={item => item.id}
+                />
             </View> 
-            <BottomNavBar navigation={navigation}/>
+            <View style={ExploreStyles.bottom}>
+                <BottomNavBar 
+                    imageSource={[require('../../assets/explore1.png'), require('../../assets/userprofile1.png')]}
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab} 
+                    navigation={navigation} 
+                />
+            </View>
         </View>
     );
 }

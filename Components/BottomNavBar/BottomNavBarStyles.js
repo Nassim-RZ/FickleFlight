@@ -1,12 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { verticalScale } from '../../Utils/Responsive';
 
 export const BottomNavBarStyles = StyleSheet.create({
     navBottom: {
         backgroundColor: "white",
-        height: verticalScale(70),
+        height: 70,
         width: '100%',
-        marginTop: verticalScale(38),
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -23,11 +21,16 @@ export const BottomNavBarStyles = StyleSheet.create({
         justifyContent: 'space-evenly'         
     },
     text: {
-        fontSize: 12,
-        color: '#7FB3D5',
+        fontSize: 13,
+        color: '#10579B',
         textAlign: 'center',
     },
     button: {
         alignItems: 'center',
+        gap: 14
     },
+    icon: {
+        width:20,
+        height:20,
+    }
 });
