@@ -10,13 +10,13 @@ const Profile = ({ navigation }) => {
         <View style={ProfileStyles.container}>
             <Image style={ProfileStyles.cover} source={require('../../assets/plage.jpg')} />
             <View style={ProfileStyles.coverIcon}>
-                    <TouchableOpacity style={ProfileStyles.icon} onPress={() => navigation.navigate('Explore')}>
-                        <Image source={require('../../assets/Frame-2395.png')} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={ProfileStyles.icon}>
-                        <Image source={require('../../assets/Frame-2396.png')} />
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity style={ProfileStyles.icon} onPress={() => navigation.navigate('Explore')}>
+                    <Image source={require('../../assets/Frame-2395.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={ProfileStyles.icon}>
+                    <Image source={require('../../assets/Frame-2396.png')} />
+                </TouchableOpacity>
+            </View>
             <View style={ProfileStyles.globalWhiteView}>
                 <Image 
                     style={ProfileStyles.profileImage}
@@ -26,22 +26,16 @@ const Profile = ({ navigation }) => {
                 <Text style={ProfileStyles.localization}>Baguio, Philippines</Text>
                 <Text style={ProfileStyles.bio}>I like the beach, mountains, forest and everything about naturel :)</Text>
                 <View style={ProfileStyles.separator} />
-                <Panel />
-                <TouchableOpacity>
-                    <View style={ProfileStyles.helpArea}>
-                        <Image source={require('../../assets/ion_help-circle-outline.png')} />
-                        <Text style={ProfileStyles.textArea}>Have questions? We are here to help</Text>
-                    </View>
-                </TouchableOpacity>            
+                <Panel />            
             </View>
-                <View style={ProfileStyles.bottom}>
-                    <BottomNavBar 
+            <View style={ProfileStyles.bottom}>
+                <BottomNavBar 
                     imageSource={[require('../../assets/explore.png'), require('../../assets/userprofile.png')]}  
                     activeTab={activeTab} 
                     setActiveTab={setActiveTab} 
                     navigation={navigation}
-                    />
-                </View>
+                />
+            </View>
         </View>
     )
 };

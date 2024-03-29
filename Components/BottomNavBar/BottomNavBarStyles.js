@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import { moderateScale, scale, verticalScale, ScaledSheet  } from 'react-native-size-matters';
 
-export const BottomNavBarStyles = StyleSheet.create({
+export const BottomNavBarStyles = ScaledSheet.create({
     navBottom: {
         backgroundColor: "white",
         height: 70,
@@ -21,9 +22,10 @@ export const BottomNavBarStyles = StyleSheet.create({
         justifyContent: 'space-evenly'         
     },
     text: {
-        fontSize: 13,
+        fontSize: 15,
         color: '#10579B',
         textAlign: 'center',
+        fontFamily: 'Roboto-Regular'
     },
     button: {
         alignItems: 'center',

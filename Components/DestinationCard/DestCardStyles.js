@@ -1,15 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { moderateScale, scale, verticalScale, ScaledSheet  } from 'react-native-size-matters';
 
 const { width } = Dimensions.get('window');
 
-export const DestCardStyles = StyleSheet.create({
+export const DestCardStyles = ScaledSheet.create({
     card: {
         backgroundColor: 'white',
-        marginLeft: 15,
-        borderRadius: 10,
-        width: width / 2.4,
+        borderRadius: 8,
+        width: scale(150),
         padding: 10,
-        height: '100%',
+        height: verticalScale(145),
+        marginRight: verticalScale(10),
     },
     image: {
         width: '100%',
@@ -18,18 +19,20 @@ export const DestCardStyles = StyleSheet.create({
     textCardFlex: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',  
+        alignItems: 'center',
+        height: verticalScale(33)
     },
     destination: {
-        marginTop: -1,
         color: '#191919',
-        fontFamily: 'Inter-Bold'
+        fontFamily: 'Inter-Bold',
+        marginVertical:verticalScale(1), 
     },
     country: {
         textAlign: 'center',
         color: '#7E8B97',
         fontSize: 12,
-        fontFamily: 'Inter'
+        fontFamily: 'Inter',
+        marginTop:verticalScale(1),
     },
     code: {
         backgroundColor: '#F8F9FB',

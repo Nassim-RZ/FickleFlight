@@ -1,20 +1,21 @@
 import { StyleSheet } from 'react-native';
+import { moderateScale, scale, verticalScale, ScaledSheet  } from 'react-native-size-matters';
 
-export const ProfileStyles = StyleSheet.create({
+export const ProfileStyles = ScaledSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
     },
     cover: {
-        marginTop: '5%',
-        height: '20%',
+        marginTop: verticalScale(15),
+        height: verticalScale(145),
         width: '100%',
     },
     coverIcon: {
         position: 'absolute',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        top: '5%', 
+        top: verticalScale(34), 
         width: '100%'
     },
     globalWhiteView: {
@@ -23,35 +24,34 @@ export const ProfileStyles = StyleSheet.create({
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
         marginTop: '-2%',
+        flexDirection: 'column',
     },
     profileImage: { 
         position: 'absolute',
         top: -50, 
         alignSelf: 'flex-start', 
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        left: '4%',
-        borderColor: 'white',
+        width:verticalScale(84),
+        height: verticalScale(84),
+        left: scale(12),
         borderWidth: 3
     },
     name: {
-        marginTop: 50,
-        marginLeft: '5%',
-        fontSize: 24,
+        marginTop: verticalScale(40),
+        marginLeft: scale(16),
+        fontSize: moderateScale(24),
         color: '#191919',
         fontFamily: 'Inter-Bold'
     },
     localization: {
-        marginLeft: '5%',
+        marginLeft: scale(16),
         color: '#7E8B97',
-        fontSize: 14,
+        fontSize: moderateScale(14),
         fontFamily: 'Inter'
     },
     bio: {
-        marginTop: 15,
-        marginLeft: '5%',
-        fontSize: 14,
+        marginTop: verticalScale(15),
+        marginHorizontal: scale(16),
+        fontSize: moderateScale(14),
         color: '#191919',
         fontFamily: 'Inter'
     },
@@ -59,28 +59,11 @@ export const ProfileStyles = StyleSheet.create({
         height: 1,
         width: '90%',
         backgroundColor: '#7E8B97', 
-        marginHorizontal: '5%', 
-        marginTop: '4%',
+        marginHorizontal: scale(16), 
+        marginTop: verticalScale(12),
         opacity: 0.1
     },
-    helpArea: {
-        width: '90%',
-        height: 44,
-        backgroundColor:'#e3f2fd',
-        borderRadius: 6,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginHorizontal: '5%',
-        color: "#669bbc",
-    },
-    textArea: {
-        color: "#1262AE",
-        fontSize: 14,
-        marginLeft: 5,
-        fontFamily: 'Inter'
-    },
     bottom: {
-        position: 'bottom'
+        bottom: 0,
     }
 });

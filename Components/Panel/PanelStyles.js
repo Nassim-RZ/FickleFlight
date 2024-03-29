@@ -1,33 +1,51 @@
 import { StyleSheet } from 'react-native';
+import { moderateScale, scale, verticalScale, ScaledSheet  } from 'react-native-size-matters';
 
-export const PanelStyles = StyleSheet.create({
+
+export const PanelStyles = ScaledSheet.create({
     panel: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "stretch",
-        marginLeft: '5%',
-        paddingTop: '5%'
+        marginLeft: scale(16),
+        paddingTop: verticalScale(16)
     },
     lineSpace: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
-        marginBottom: 17,
+        padding: moderateScale(10)
     },
     textPanel: {
-        fontSize: 16,
+        fontSize: moderateScale(16),
         fontWeight: 'bold',
         color: '#191919',
         alignSelf: 'center',
         fontFamily: 'Roboto-Regular'
     },
-    iconCircle: {
+    icon: {
         width: 40,
         height: 40,
-        borderRadius: 4,
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: '4%', 
+        marginRight: scale(14), 
+    },
+    helpArea: {
+        width: '95%',
+        height: 44,
+        backgroundColor:'#e3f2fd',
+        borderRadius: 7,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: "#669bbc",
+        padding: 10
+    },
+    textArea: {
+        color: "#1262AE",
+        fontSize: 14,
+        marginLeft: 5,
+        fontFamily: 'Inter'
     },
 });

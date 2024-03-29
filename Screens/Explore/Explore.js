@@ -41,39 +41,43 @@ const Explore = ({ navigation }) => {
                 <Text style={ExploreStyles.textPrice}>$1299</Text>
             </View>
             <Text style={ExploreStyles.textFlight}>Upcoming Flight</Text>
-            <View style={ExploreStyles.viewFlight}>
-                <View>
-                    <Text style={ExploreStyles.abrevStartingPoint}>SIN</Text>
-                    <Text style={ExploreStyles.startingPoint}>Singapore</Text>
+            <View style={ExploreStyles.viewTravel}>
+                <View style={ExploreStyles.viewUpTravel}>
+                    <View style={ExploreStyles.textLeft}>
+                        <Text style={ExploreStyles.textUpper}>SIN</Text>
+                        <Text style={ExploreStyles.textLower}>Singapore</Text>
+                    </View>
+                    <View style={ExploreStyles.ViewAirPlan}>
+                        <Image source={require('../../assets/Frame-13.png')} style={ExploreStyles.airPlan}/>
+                    </View>
+                    <View style={ExploreStyles.textRight}>
+                        <Text style={ExploreStyles.textUpperScnd}>LAX</Text>
+                        <Text style={ExploreStyles.textLower}>Los Angeles</Text>
+                    </View>
                 </View>
-                <View style={ExploreStyles.viewAirPlan}>
-                <Image source={require('../../assets/Frame-13.png')} style={ExploreStyles.airPlan}/>
-                </View>
-                <View>
-                    <Text style={ExploreStyles.abrevEndingPoint}>LAX</Text>
-                    <Text style={ExploreStyles.endingPoint}>Los Angeles</Text>
+                <View style={ExploreStyles.separator} />
+                <View style={ExploreStyles.viewDownTravel}>
+                    <Text style={ExploreStyles.dateDepart}>Departs on: 1 May, 08:00 AM</Text>
+                    <Text style={ExploreStyles.remainingDays}> <Text style={ExploreStyles.boldText}>4 days </Text> to go</Text>
                 </View>
             </View>
-            <View style={ExploreStyles.separator} />
-            <View style={ExploreStyles.scndViewFlight}>
-                <Text style={ExploreStyles.dateDepart}>Departs on: 1 May, 08:00 AM</Text>
-                <Text style={ExploreStyles.remainingDays}> <Text style={ExploreStyles.boldText}>4 days </Text> to go</Text>
+            <View>
+                <View style={ExploreStyles.trendLine}>
+                    <Text style={ExploreStyles.textFlight}>Trending Destinations</Text>
+                    <TouchableOpacity>
+                        <Text style={ExploreStyles.textSeeAll} onPress={() => navigation.navigate('SeeAll')} >See all</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={ExploreStyles.viewList}>
+                    <FlatList 
+                        horizontal={true} 
+                        showsHorizontalScrollIndicator={false}
+                        data={data}
+                        renderItem={renderDestinationCard}
+                        keyExtractor={item => item.id}
+                    />
+                </View>
             </View>
-            <View style={ExploreStyles.spaceTrendText}>
-                <Text style={ExploreStyles.textFlight}>Trending Destinations</Text>
-                <TouchableOpacity>
-                    <Text style={ExploreStyles.textSeeAll} onPress={() => navigation.navigate('SeeAll')} >See all</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={ExploreStyles.viewList}>
-                <FlatList 
-                    horizontal={true} 
-                    showsHorizontalScrollIndicator={false}
-                    data={data}
-                    renderItem={renderDestinationCard}
-                    keyExtractor={item => item.id}
-                />
-            </View> 
             <View style={ExploreStyles.bottom}>
                 <BottomNavBar 
                     imageSource={[require('../../assets/explore1.png'), require('../../assets/userprofile1.png')]}
