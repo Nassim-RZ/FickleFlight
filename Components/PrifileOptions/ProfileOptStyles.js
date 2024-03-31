@@ -2,45 +2,44 @@ import { StyleSheet } from 'react-native';
 import { moderateScale, scale, verticalScale, ScaledSheet  } from 'react-native-size-matters';
 
 
-export const PanelStyles = ScaledSheet.create({
+export const ProfileOptStyles = ScaledSheet.create({
     panel: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "stretch",
+        paddingTop: 16,
         marginLeft: scale(16),
-        paddingTop: verticalScale(16)
     },
     lineSpace: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
-        padding: moderateScale(10)
+        paddingBottom: 20
     },
     textPanel: {
-        fontSize: moderateScale(16),
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#191919',
         alignSelf: 'center',
-        fontFamily: 'Roboto-Regular'
+        fontFamily: 'Roboto-Regular',
+        marginLeft: scale(14),
     },
     icon: {
         width: 40,
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: scale(14), 
     },
     helpArea: {
         width: '95%',
-        height: 44,
         backgroundColor:'#e3f2fd',
         borderRadius: 7,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         color: "#669bbc",
-        padding: 10
+        padding: 10,
     },
     textArea: {
         color: "#1262AE",

@@ -3,36 +3,30 @@ import { moderateScale, scale, verticalScale, ScaledSheet  } from 'react-native-
 
 const { width } = Dimensions.get('window');
 
-export const DestCardStyles = ScaledSheet.create({
+export const DestCardStyles = StyleSheet.create({
     card: {
         backgroundColor: 'white',
         borderRadius: 8,
-        width: scale(150),
         padding: 10,
-        height: verticalScale(145),
-        marginRight: verticalScale(10),
+        marginRight: 10,
     },
     image: {
-        width: '100%',
-        height: '70%',
     },
     textCardFlex: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        height: verticalScale(33)
     },
     destination: {
         color: '#191919',
         fontFamily: 'Inter-Bold',
-        marginVertical:verticalScale(1), 
+        fontSize: 14, 
     },
     country: {
         textAlign: 'center',
         color: '#7E8B97',
         fontSize: 12,
         fontFamily: 'Inter',
-        marginTop:verticalScale(1),
     },
     code: {
         backgroundColor: '#F8F9FB',
